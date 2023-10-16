@@ -1,5 +1,216 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+:root {
+  --accent-color: #ff0070;
+  --accent-color-hover: #ff007050;
+  --text-color-dark: #000028;
+  --title-color: #DB00FF;
+  --text-color-light: #F1B2CE;
+}
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  display: grid;
+  justify-content: end;
+  padding: 10px;
+  background-image: url('../images/cover-image-dark.png');
+  background-attachment: fixed;
+  font-family: IBM Plex Mono, sans-serif;
+}
+
+.header {
+  display: grid;
+  margin-block-end: 81px;
+}
+
+.header::before, .footer::before {
+  position: absolute;
+  justify-self: end;
+  align-self: start;
+  content: '';
+  block-size: 25px;
+  inline-size: 25.04px;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+}
+
+.header::after, .footer::after {
+  position: absolute;
+  justify-self: start;
+  align-self: end;
+  content: '';
+  block-size: 25px;
+  inline-size: 25.04px;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+}
+
+.header::after {
+  bottom: 160px;
+}
+
+.header__decoration {
+  display: flex;
+  position: relative;
+  justify-content: end;
+  min-block-size: 26px;
+  min-inline-size: 33px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; 
+  color: var(--accent-color);
+  margin-inline-end: 28px;
+}
+
+.header__decoration::after {
+  position: absolute;
+  content: '';
+  block-size: 9px;
+  inline-size: 9px;
+  inset: 8px 336px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  filter: drop-shadow(0px 0px 4px var(--accent-color));
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  margin-block-start: 39px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: none;
+  padding: 1.5px 13px;
+  color: var(--accent-color);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-transform: lowercase;
+  min-inline-size: 70px;
+  min-block-size: 26px;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--accent-color-hover);
+}
+
+.header__theme-menu-button:focus {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--accent-color);
+}
+
+.header__title, .footer__title {
+  display: flex;
+  flex-direction: column;
+  color: var(--title-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 82.5%;
+  text-transform: lowercase;
+  margin-block-start: 65px;
+  margin-block-end: 55px;
+}
+
+.header__text {
+  display: flex;
+  flex-direction: column;
+  color: #000028;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23.4px;
+  margin-block-end: 31px;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+}
+
+.main-content {
+  display: grid;
+  gap: 50px;
+}
+
+.content__block {
+  display: grid;
+  gap: 20px;
+}
+
+.content__block-title, .content__block-title-bold {
+  color: var(--accent-color);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.content__block-article {
+  display: grid;
+  gap: 10px;
+}
+
+.content__block-article-title {
+  color: var(--text-color-dark);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.content__block-article-text {
+  color: var(--text-color-light);
+  font-family: IBM Plex Mono;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.4px;
+}
+
+.content__block-article-link {
+  position: relative;
+  text-shadow: 2px 2px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+.content__block-article-link:hover {
+  border-bottom: 1px solid var(--text-color-light);
+}
+
+.content__block-article-link:focus {
+  content: '';
+  block-size: 22px;
+  inline-size: 97px;
+  outline: 1px solid var(--text-color-light);
+}
+
+.content__block-title-bold {
+  color: var(--text-color-dark);
+}
+
+.picture-block {
+  display: grid;
+  gap: 10px;
+  margin-block-end: 40px;
+}
+
+.picture-block-image {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.footer {
+  display: grid;
+  min-block-size: 667px;
+  justify-content: center;
+  align-content: center;
+  padding: 10px 0;
 }
