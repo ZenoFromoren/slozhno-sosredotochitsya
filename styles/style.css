@@ -1,23 +1,16 @@
-:root {
-  --accent-color: #ff0070;
-  --accent-color-hover: #ff007050;
-  --text-color-dark: #000028;
-  --title-color: #DB00FF;
-  --text-color-light: #F1B2CE;
-}
-
 .page {
   display: grid;
   justify-content: end;
   padding: 10px;
-  background-image: url('../images/cover-image-dark.png');
+  background-image: var(--background-image);
   background-attachment: fixed;
   font-family: IBM Plex Mono, sans-serif;
 }
 
 .header {
   display: grid;
-  margin-block-end: 81px;
+  position: relative;
+  margin-block-end: 40px;
 }
 
 .header::before, .footer::before {
@@ -43,13 +36,14 @@
 }
 
 .header::after {
-  bottom: 160px;
+  bottom: 10px;
 }
 
 .header__decoration {
   display: flex;
-  position: relative;
+  position: absolute;
   justify-content: end;
+  right: 0;
   min-block-size: 26px;
   min-inline-size: 33px;
   font-size: 18px;
@@ -65,7 +59,8 @@
   content: '';
   block-size: 9px;
   inline-size: 9px;
-  inset: 8px 336px;
+  top: 8px;
+  right: -20px;
   background-color: var(--accent-color);
   border-radius: 50%;
   filter: drop-shadow(0px 0px 4px var(--accent-color));
@@ -76,7 +71,7 @@
   flex-direction: column;
   align-items: end;
   gap: 10px;
-  margin-block-start: 39px;
+  margin-block-start: 65px;
 }
 
 .header__theme-menu-button {
@@ -98,7 +93,7 @@
   outline: 1px solid var(--accent-color-hover);
 }
 
-.header__theme-menu-button:focus {
+.header__theme-menu-button:focus-visible {
   border-bottom: 1px solid var(--accent-color);
 }
 
@@ -110,7 +105,7 @@
   display: flex;
   flex-direction: column;
   color: var(--title-color);
-  text-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--shadow-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-style: normal;
   font-weight: 700;
@@ -123,16 +118,18 @@
 .header__text {
   display: flex;
   flex-direction: column;
-  color: #000028;
+  color: var(--header-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 23.4px;
-  margin-block-end: 31px;
+  margin-block-end: 66px;
+  min-block-size: 117px;
+  max-inline-size: 355px;
 }
 
 .title-decor {
-  background-color: var(--accent-color);
+  background-color: var(--title-decor-color);
 }
 
 .main-content {
@@ -140,7 +137,7 @@
   gap: 50px;
 }
 
-.content__block {
+.content__block, .content__block-row {
   display: grid;
   gap: 20px;
 }
@@ -159,15 +156,20 @@
 }
 
 .content__block-article-title {
-  color: var(--text-color-dark);
+  color: var(--title-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 23.4px;
 }
 
+.articles {
+  display: grid;
+  gap: 20px;
+}
+
 .content__block-article-text {
-  color: var(--text-color-light);
+  color: var(--article-text-color);
   font-family: IBM Plex Mono;
   font-size: 18px;
   font-style: normal;
@@ -177,23 +179,23 @@
 
 .content__block-article-link {
   position: relative;
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--shadow-color);
   text-decoration: none;
 }
 
 .content__block-article-link:hover {
-  border-bottom: 1px solid var(--text-color-light);
+  border-bottom: 1px solid var(--article-text-color);
 }
 
-.content__block-article-link:focus {
+.content__block-article-link:focus-visible {
   content: '';
   block-size: 22px;
   inline-size: 97px;
-  outline: 1px solid var(--text-color-light);
+  outline: 1px solid var(--article-text-color);
 }
 
 .content__block-title-bold {
-  color: var(--text-color-dark);
+  color: var(--title-text-color);
 }
 
 .picture-block {
@@ -205,12 +207,165 @@
 .picture-block-image {
   block-size: 100%;
   inline-size: 100%;
+  object-fit: cover;
 }
 
 .footer {
   display: grid;
+  position: relative;
   min-block-size: 667px;
   justify-content: center;
   align-content: center;
-  padding: 10px 0;
+}
+
+.footer::before {
+  top: 10px;
+}
+
+.footer::after {
+  bottom: 10px;
+}
+
+@media (width >= 768px) {
+  .page {
+    padding: 20px 20px 20px 0;
+  }
+
+  .header {
+    margin-block-end: 60px;
+  }
+
+  .header::after {
+    left: 20px;
+    bottom: 20px;
+  }
+  
+  .header__theme-menu-list {
+    margin-block-start: 172px;
+  }
+
+  .header__title {
+    flex-direction: row;
+    gap: 72px;
+    margin-block-start: 173px;
+    margin-block-end: 162px;
+  }
+
+  .header__text {
+    max-inline-size: 364px;
+    justify-self: end;
+    margin-block-end: 183px;
+  }
+
+  .main-content {
+    padding-left: 20px;
+    gap: 80px;
+  }
+
+  .content__block-row {
+    grid-template-columns: 236px auto;
+  }
+
+  .content__block-title {
+    max-inline-size: 236px;
+  }
+
+  .picture-block {
+    gap: 20px;
+    grid-template-areas:
+      "picture-block-title picture-block-title picture-block-title"
+      "sunset sunset ice-cream"
+      "tape books ice-cream"
+      "tape street street"
+  }
+
+  .picture-block-title {
+    grid-area: picture-block-title;
+  }
+  
+  .sunset {
+    grid-area: sunset;
+  }
+  
+  .ice-cream {
+    grid-area: ice-cream;
+  }
+  
+  .tape {
+    grid-area: tape;
+  }
+  
+  .books {
+    grid-area: books;
+  }
+  
+  .street {
+    grid-area: street;
+  }
+
+  .footer {
+    min-block-size: 1024px;
+    padding: 20px 0 0 20px;
+  }
+
+  .footer::before {
+    top: 40px;
+  }
+
+  .footer::after {
+    left: 20px;
+    bottom: 0;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__top {
+    display:flex;
+    flex-direction: row-reverse;
+    gap: 316px;
+  }
+
+  .header__top {
+    justify-content: center;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    margin-inline-start: 20px;
+  }
+
+  .header__title, .footer__title {
+    margin-block-start: 273px;
+    margin-block-end: 114px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    gap: 94px;
+  }
+
+  .header__text {
+    max-inline-size: 491px;
+    min-block-size: 71px;
+    margin-block-end: 134px;
+  }
+  
+  .content__block-row {
+    grid-template-columns: 314.96px auto;
+  }
+
+  .content__block-title {
+    max-inline-size: 314.96px;
+  }
+  
+  .footer {
+    min-block-size: 768px;
+  }
+
+  .footer__title {
+    margin-block-start: 135px;
+  }
+
+  .content__block .articles {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
 }
