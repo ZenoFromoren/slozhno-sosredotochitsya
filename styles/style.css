@@ -11,6 +11,7 @@
   display: grid;
   position: relative;
   margin-block-end: 40px;
+  min-block-size: 658px;
 }
 
 .header::before, .footer::before {
@@ -233,6 +234,7 @@
 
   .header {
     margin-block-end: 60px;
+    min-block-size: 1004px;
   }
 
   .header::after {
@@ -319,6 +321,10 @@
 }
 
 @media (width >= 1024px) {
+  .header {
+    min-block-size: 748px;
+  }
+
   .header__top {
     display:flex;
     flex-direction: row-reverse;

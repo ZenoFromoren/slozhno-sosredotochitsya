@@ -1,4 +1,4 @@
-:root.theme-dark {
+.page.theme_dark {
   --shadow-color: #ff0070;
   --accent-color: #ff0070;
   --accent-color-hover: #ff007050;
@@ -7,4 +7,9 @@
   --title-color: #DB00FF;
   --article-text-color: #F1B2CE;
   --background-image: url('../images/cover-image-dark.png');
+  
+  .header__decoration {
+      display: flex;
+  }  
 }
+

@@ -6,11 +6,12 @@
   --title-color: #FFC2E6;
   --article-text-color: #353430;
   --background-image: url('../images/cover-image-light.png');
+  
+  .header__decoration {
+    display: none;
+  }
 }
 
-.header__decoration {
-  display: none;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -21,5 +22,9 @@
     --title-color: #FFC2E6;
     --article-text-color: #353430;
     --background-image: url('../images/cover-image-light.png');
+  }
+  
+  .header__decoration {
+    display: none;
   }
 }
