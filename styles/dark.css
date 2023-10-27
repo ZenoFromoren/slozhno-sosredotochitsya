@@ -4,6 +4,7 @@
   --accent-color-hover: #ff007050;
   --title-decor-color: #ff0070;
   --header-text-color: #000028;
+  --title-text-color: #000028;
   --title-color: #DB00FF;
   --article-text-color: #F1B2CE;
   --background-image: url('../images/cover-image-dark.png');
@@ -12,4 +13,3 @@
       display: flex;
   }  
 }
-
