@@ -12,33 +12,32 @@
 .header {
   display: grid;
   position: relative;
-  margin-block-end: 40px;
-  block-size: 100vh;
+  margin-block-end: 30px;
+  min-block-size: 100vh;
   padding: 10px 0;
 }
 
-.decorated-zone::before {
+.decorated-zone::before, .decorated-zone::after {
   position: absolute;
-  justify-self: end;
-  align-self: start;
   content: '';
   block-size: 25px;
   inline-size: 25.04px;
+}
+
+.decorated-zone::before {
+  justify-self: end;
+  align-self: start;
   border-block-start: 1px solid var(--accent-color);
   border-inline-end: 1px solid var(--accent-color);
   top: 10px;
 }
 
 .decorated-zone::after {
-  position: absolute;
   justify-self: start;
   align-self: end;
-  content: '';
-  block-size: 25px;
-  inline-size: 25.04px;
   border-block-end: 1px solid var(--accent-color);
   border-inline-start: 1px solid var(--accent-color);
-  bottom: 10px;
+  bottom: 20px;
 }
 
 .header__decoration {
@@ -111,8 +110,6 @@
 }
 
 .title {
-  display: flex;
-  flex-direction: column;
   color: var(--title-color);
   text-shadow: 4px 4px 0 var(--shadow-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -125,15 +122,12 @@
 }
 
 .header__text {
-  display: flex;
-  flex-direction: column;
   color: var(--header-text-color);
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 23.4px;
   margin-block-end: 66px;
-  min-block-size: 117px;
   max-inline-size: 355px;
   align-self: start;
 }
@@ -224,7 +218,7 @@
 .footer {
   display: grid;
   position: relative;
-  block-size: 100vh;
+  min-block-size: 100vh;
   justify-content: center;
   align-content: center;
 }
@@ -233,11 +227,7 @@
   text-shadow: 2px 2px 0 var(--shadow-color);
 }
 
-.footer. decorated-zone::before {
-  top: 10px;
-}
-
-.footer. decorated-zone::after {
+.footer.decorated-zone::after {
   bottom: 10px;
 }
 
@@ -247,7 +237,7 @@
   }
 
   .header {
-    margin-block-end: 60px;
+    margin-block-end: 50px;
     padding-top: 20px;
   }
 
@@ -257,7 +247,7 @@
 
   .decorated-zone::after {
     left: 20px;
-    bottom: 20px;
+    bottom: 30px;
   }
 
   .header__decoration {
@@ -273,8 +263,6 @@
   }
 
   .title {
-    flex-direction: row;
-    gap: 72px;
     margin-block-start: 173px;
     margin-block-end: 162px;
   }
@@ -342,7 +330,6 @@
   }
 
   .footer.decorated-zone::after {
-    left: 20px;
     bottom: 0;
   }
 }
@@ -360,12 +347,10 @@
     margin-block-start: 273px;
     margin-block-end: 114px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    gap: 94px;
   }
 
   .header__text {
     max-inline-size: 491px;
-    min-block-size: 71px;
     margin-block-end: 134px;
   }
   
